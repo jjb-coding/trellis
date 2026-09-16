@@ -1,34 +1,24 @@
 package com.github.jjbcoding.trellis.service;
 
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * Classifies the data obtained from scanning a class whose superclass is Injectable.
  */
-public class InjectableConfiguration extends Configuration {
+class InjectableConfiguration extends Configuration<Injectable> {
 	// ----- DYNAMIC
 	// *** CONSTRUCTORS
-	public InjectableConfiguration(Class<?> cls) {
-		super(cls, false);
+	InjectableConfiguration(Class<? extends Injectable> injectableClass) {
+		super(injectableClass, false);
 	}
 
 	// *** METHODS
-	// ** PUBLIC
-	/**
-	 * Launches an Injectable.
-	 * @param _appContainer
-	 * @return
-	 */
-	public Object launch(AppService _appContainer, Base parent) {
+	// ** PACKAGE-PRIVATE
+	Object execute(AppService _appService, Base parent) throws InvocationTargetException, InstantiationException, IllegalAccessException {
 		Object[] values = new Object[2];
-		values[0] = _appContainer;
+		values[0] = _appService;
 		values[1] = parent;
 
-		Object ret;
-		try {
-			ret = constructor.newInstance(values);
-		}
-		catch (Exception e) {
-			throw new RuntimeException("APP:runtime: Couldn't instantiate injectable " + thisCls.getSimpleName(), e.getCause());
-		}
-		return ret;
+		return constructor.newInstance(values);
 	}
 }

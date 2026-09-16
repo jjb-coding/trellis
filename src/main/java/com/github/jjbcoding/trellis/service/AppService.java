@@ -973,7 +973,7 @@ public class AppService {
 
 		Injectable injectable;
 		try {
-			injectable = (Injectable)configuration.launch(this, launcher);
+			injectable = (Injectable)configuration.execute(this, launcher);
 		}
 		catch (ResolutionTermination e) {
 			throw e;

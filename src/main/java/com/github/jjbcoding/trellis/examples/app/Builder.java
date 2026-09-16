@@ -1,6 +1,6 @@
 package com.github.jjbcoding.trellis.examples.app;
 
-import com.github.jjbcoding.trellis.examples.contributions.TitleContributionAggregator;
+import com.github.jjbcoding.trellis.service.contributions.defaults.title.TitleContributionAggregator;
 import com.github.jjbcoding.trellis.examples.enums.injectables.*;
 import com.github.jjbcoding.trellis.examples.enums.states.*;
 import com.github.jjbcoding.trellis.examples.nodes.AppNode;

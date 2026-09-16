@@ -5,6 +5,7 @@ import com.github.jjbcoding.trellis.service.Node;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serial;
 
 /**
  *
@@ -13,6 +14,7 @@ import java.awt.*;
 public class TransparentPanelDisplay extends JPanel
 	implements IDisplay {
 	// Serial version ID
+	@Serial
 	private static final long serialVersionUID = 1L;
 	// Fields
 	Node _parent;

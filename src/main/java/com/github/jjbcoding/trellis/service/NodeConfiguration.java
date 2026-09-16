@@ -4,6 +4,7 @@ import com.github.jjbcoding.trellis.service.annotations.Expects;
 import com.github.jjbcoding.trellis.service.annotations.Parent;
 import com.github.jjbcoding.trellis.service.annotations.Supplies;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -23,9 +24,9 @@ class NodeConfiguration extends Configuration<Node> {
     HashSet<NodeConfiguration> childrenConfigurations;
 
     // *** CONSTRUCTORS
-    public NodeConfiguration(Class<? extends Node> cls) {
+    NodeConfiguration(Class<? extends Node> nodeClass) {
         // * Super
-        super(cls, true);
+        super(nodeClass, true);
 
         // * Initialise descendants & children
         descendantClasses = new HashSet<>();
@@ -33,7 +34,7 @@ class NodeConfiguration extends Configuration<Node> {
 
         // * Annotations
         // Expects
-        Expects expectsAnnotation = cls.getAnnotation(Expects.class);
+        Expects expectsAnnotation = nodeClass.getAnnotation(Expects.class);
         if (expectsAnnotation != null) {
             expects = new ArrayList<>();
             Class<? extends Injectable>[] expectsArray = expectsAnnotation.value();
@@ -42,7 +43,7 @@ class NodeConfiguration extends Configuration<Node> {
         }
 
         // Provides
-        Supplies providesAnnotation = cls.getAnnotation(Supplies.class);
+        Supplies providesAnnotation = nodeClass.getAnnotation(Supplies.class);
         if (providesAnnotation != null) {
             provides = new ArrayList<>();
             Class<? extends Injectable>[] providesArray = providesAnnotation.value();
@@ -51,7 +52,7 @@ class NodeConfiguration extends Configuration<Node> {
         }
 
         // Parent
-        Parent parentAnnotation = cls.getAnnotation(Parent.class);
+        Parent parentAnnotation = nodeClass.getAnnotation(Parent.class);
         if (parentAnnotation == null)
             parentClass = null;
         else
@@ -59,8 +60,6 @@ class NodeConfiguration extends Configuration<Node> {
     }
 
     // *** METHODS
-    // ** PUBLIC
-
     // ** PACKAGE-PRIVATE
     // * Provides / Expects Interface
     // Query
@@ -81,23 +80,17 @@ class NodeConfiguration extends Configuration<Node> {
         return new HashSet<>(provides);
     }
 
-
-    Object execute(AppService appContainer, Node parent, InjectableBag bag) {
+    // Execution
+    Object execute(AppService _appService, Node parent, InjectableBag bag) throws InvocationTargetException, InstantiationException, IllegalAccessException {
         Object[] values = new Object[3];
-        values[0] = appContainer;
+        values[0] = _appService;
         values[1] = parent;
         values[2] = bag;
 
-        Object ret;
-        try {
-            ret = constructor.newInstance(values);
-        } catch (Exception e) {
-            throw new RuntimeException("APP:runtime: Couldn't instantiate " + thisCls.getSimpleName(), e.getCause());
-        }
-        return ret;
+        return constructor.newInstance(values);
     }
 
-    // ** PACKAGE-PRIVATE
+    // Query
     boolean isLeaf() {
         return childrenConfigurations.isEmpty();
     }
