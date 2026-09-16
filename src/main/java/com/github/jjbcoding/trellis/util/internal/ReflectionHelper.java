@@ -57,9 +57,9 @@ public class ReflectionHelper {
     public static List<Class<?>> getNamedClasses(String packageName) throws ClassNotFoundException, IOException {
     	List<Class<?>> in = getClasses(packageName);
         List<Class<?>> out = new ArrayList<>();
-    	for (int i = 0; i < in.size(); i++)
-    		if (!in.get(i).isAnonymousClass())
-    			out.add(in.get(i));
+        for (Class<?> classObject : in)
+            if (!classObject.isAnonymousClass())
+                out.add(classObject);
     	return out;
     }
 }

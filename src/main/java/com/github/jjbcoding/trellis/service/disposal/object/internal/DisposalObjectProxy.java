@@ -2,7 +2,6 @@ package com.github.jjbcoding.trellis.service.disposal.object.internal;
 
 import com.github.jjbcoding.trellis.service.Injectable;
 import com.github.jjbcoding.trellis.service.Node;
-import com.github.jjbcoding.trellis.service.disposal.object.DisposalObject;
 
 import java.util.List;
 

@@ -17,6 +17,7 @@ public interface IDisplay {
 	 * Retrieves the parent node.
 	 * @return			The Node
 	 */
+	@SuppressWarnings("unused")
 	Node getNode();
 
 	// ----- CONTRACTUAL
@@ -26,6 +27,7 @@ public interface IDisplay {
 	 * underlying Node tree with the tree of {@link IDisplay} implementing objects.
 	 * @param child		The child of the IDisplay element
 	 */
+	@SuppressWarnings("unused")
 	default void swapChild(IDisplay child) {}
 
 	// ----- DEFAULT
@@ -34,6 +36,7 @@ public interface IDisplay {
 	 * @param injectableClass		The Injectable class
 	 * @return						The Injectable
 	 */
+	@SuppressWarnings("unused")
 	default Object inject(Class<? extends Injectable> injectableClass) {
 		return getNode().inject(injectableClass);
 	}
@@ -44,6 +47,7 @@ public interface IDisplay {
 	 * @return						The Injectable
 	 * @throws OperationException	if the constant is invalid
 	 */
+	@SuppressWarnings("unused")
 	default Object inject(Enum<?> injectableConstant) {
 		return getNode().inject(injectableConstant);
 	}
@@ -52,6 +56,7 @@ public interface IDisplay {
 	 * Sources the AppService.
 	 * @return						The AppService
 	 */
+	@SuppressWarnings("unused")
 	default AppService getAppService() {
 		return getNode().getAppService();
 	}

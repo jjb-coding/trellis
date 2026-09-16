@@ -1,5 +1,6 @@
 package com.github.jjbcoding.trellis.examples.displays;
 
+import com.github.jjbcoding.trellis.exceptions.ImplementationException;
 import com.github.jjbcoding.trellis.service.displays.IDisplay;
 import com.github.jjbcoding.trellis.examples.injectables.controllers.DashboardController;
 import com.github.jjbcoding.trellis.examples.enums.injectables.Injectables;
@@ -36,7 +37,7 @@ public class DashboardDisplay extends JPanel
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new ImplementationException("DashboardDisplay: Couldn't configure UIManager");
         }
 
         // This

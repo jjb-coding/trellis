@@ -40,11 +40,10 @@ class Configuration<T> {
 
         // VALIDATE: is second parameter class?
         Type parentType = types[1];
-        if (!(parentType instanceof Class<?>))
+        if (!(parentType instanceof Class<?> parentCls))
             throw new RuntimeException("APP:refl[" + cls.getSimpleName() + "]: Second parameter is not a class.");
 
         // VALIDATE: is second parameter parent?
-        Class<?> parentCls = (Class<?>) parentType;
         if (!(Base.class.isAssignableFrom(parentCls)))
             throw new RuntimeException("APP:refl[" + cls.getSimpleName() + "]: Second parameter is not a subtype of Base.");
 

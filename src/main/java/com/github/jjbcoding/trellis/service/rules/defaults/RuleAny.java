@@ -61,7 +61,7 @@ public class RuleAny<T>
     @SuppressWarnings("unused")
     @Override
     public boolean isValid(Iterable<Class<? extends T>> discoveredClasses) {
-        for (Rule rule : rules)
+        for (Rule<T> rule : rules)
             if (rule.isValid(discoveredClasses))
                 return true;
         return false;

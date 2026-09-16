@@ -45,7 +45,7 @@ public class InjectableBag {
      * @throws ImplementerException       if the Injectable implements AutoCloseable and its close method threw an error
      */
     @SuppressWarnings("unused")
-    public void remove(Enum injectableConstant) {
+    public void remove(Enum<?> injectableConstant) {
         remove(_appService.constToClassInj(injectableConstant));
     }
 

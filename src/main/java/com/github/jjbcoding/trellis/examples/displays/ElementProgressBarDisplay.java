@@ -71,5 +71,5 @@ public class ElementProgressBarDisplay extends JPanel
 	    
 	    // Add
  		add((JPanel)child, BorderLayout.CENTER);
-	};
+	}
 }

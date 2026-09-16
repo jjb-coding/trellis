@@ -49,7 +49,7 @@ public class Digest {
      * @throws OperationException       if the constant is invalid
      */
     @SuppressWarnings("unused")
-    public DigestComponent consume(Enum componentConstant) {
+    public DigestComponent consume(Enum<?> componentConstant) {
         return consume(_appService.constToClassDigCom(componentConstant));
     }
 
@@ -109,7 +109,7 @@ public class Digest {
      * @throws OperationException       if the constant is invalid
      */
     @SuppressWarnings("unused")
-    public DigestComponent tryConsume(Enum componentConstant) {
+    public DigestComponent tryConsume(Enum<?> componentConstant) {
         return tryConsume(_appService.constToClassDigCom(componentConstant));
     }
 
@@ -180,7 +180,7 @@ public class Digest {
      * @throws OperationException       if the constant is invalid
      */
     @SuppressWarnings("unused")
-    public DigestComponent fetch(Enum componentConstant) {
+    public DigestComponent fetch(Enum<?> componentConstant) {
         return fetch(_appService.constToClassDigCom(componentConstant));
     }
 
@@ -240,7 +240,7 @@ public class Digest {
      * @throws OperationException       if the constant is invalid
      */
     @SuppressWarnings("unused")
-    public DigestComponent tryFetch(Enum componentConstant) {
+    public DigestComponent tryFetch(Enum<?> componentConstant) {
         return tryFetch(_appService.constToClassDigCom(componentConstant));
     }
 

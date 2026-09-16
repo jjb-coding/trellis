@@ -45,7 +45,7 @@ public class TitleContributionAggregator
                 stringBuilder.append(delimeterString);
         }
         TitleDigestComponent digest = new TitleDigestComponent(stringBuilder.toString());
-        List<DigestComponent> digestComponents = new ArrayList<DigestComponent>();
+        List<DigestComponent> digestComponents = new ArrayList<>();
         digestComponents.add(digest);
         return digestComponents;
     }

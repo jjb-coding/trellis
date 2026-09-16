@@ -6,6 +6,7 @@ import com.github.jjbcoding.trellis.service.annotations.Supplies;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -35,20 +36,13 @@ class NodeConfiguration extends Configuration<Node> {
         // * Annotations
         // Expects
         Expects expectsAnnotation = nodeClass.getAnnotation(Expects.class);
-        if (expectsAnnotation != null) {
-            expects = new ArrayList<>();
-            Class<? extends Injectable>[] expectsArray = expectsAnnotation.value();
-            for (int i = 0; i < expectsArray.length; i++)
-                expects.add(expectsArray[i]);
-        }
+        if (expectsAnnotation != null)
+            expects = new ArrayList<>(Arrays.asList(expectsAnnotation.value()));
 
         // Provides
         Supplies providesAnnotation = nodeClass.getAnnotation(Supplies.class);
         if (providesAnnotation != null) {
-            provides = new ArrayList<>();
-            Class<? extends Injectable>[] providesArray = providesAnnotation.value();
-            for (int i = 0; i < providesArray.length; i++)
-                provides.add(providesArray[i]);
+            provides = new ArrayList<>(Arrays.asList(providesAnnotation.value()));
         }
 
         // Parent

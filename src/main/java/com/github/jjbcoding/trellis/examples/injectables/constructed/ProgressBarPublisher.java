@@ -46,11 +46,11 @@ public class ProgressBarPublisher extends Injectable {
 		
 		// Get the current interval being used
 		float start;
-		if (stack.size() == 0)
+		if (stack.isEmpty())
 			// Default (0.0,1.0)
 			start = 0.0f;
 		else
-			start = stack.get(stack.size() - 1);
+			start = stack.getLast();
 			
 		// Map
 		progress = start + ((1.0f - start) * progress);

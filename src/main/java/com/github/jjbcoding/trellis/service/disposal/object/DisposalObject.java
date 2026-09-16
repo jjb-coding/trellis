@@ -59,10 +59,8 @@ public class DisposalObject
      */
     @SuppressWarnings("unused")
     public List<NodeDescription> byLineageAscending() {
-        NodeRegistration rootRegistration = map.get(root);
-
         List<NodeDescription> nodeDescriptions = new ArrayList<>();
-        preorderR(rootRegistration, nodeDescriptions);
+        preorderR(root, nodeDescriptions);
 
         return nodeDescriptions;
     }
@@ -74,10 +72,8 @@ public class DisposalObject
      */
     @SuppressWarnings("unused")
     public List<NodeDescription> byLineageDescending() {
-        NodeRegistration rootRegistration = map.get(root);
-
         List<NodeDescription> nodeDescriptions = new ArrayList<>();
-        postorderR(rootRegistration, nodeDescriptions);
+        postorderR(root, nodeDescriptions);
 
         return nodeDescriptions;
     }
