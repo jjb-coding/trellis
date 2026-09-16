@@ -22,8 +22,8 @@ public class TransparentPanelDisplay extends JPanel
 	JPanel child;
 
 	/**
-	 *
-	 * @param _parent
+	 * Constructs a TransparentPanelDisplay instance.
+	 * @param _parent	The parent Node
 	 */
 	@SuppressWarnings("unused")
 	public TransparentPanelDisplay(Node _parent) {
@@ -36,20 +36,14 @@ public class TransparentPanelDisplay extends JPanel
 		setOpaque(false);
 	}
 
-	/**
-	 *
-	 * @return
-	 */
+	// ----- INTERFACE IMPLEMENTATIONS
+	// * [ IDisplay ]
 	@SuppressWarnings("unused")
 	@Override
 	public Node getNode() {
 		return _parent;
 	}
 
-	/**
-	 *
-	 * @param child	The child of the IDisplay element
-	 */
 	@SuppressWarnings("unused")
 	@Override
 	public void swapChild(IDisplay child) {
@@ -60,5 +54,5 @@ public class TransparentPanelDisplay extends JPanel
 	    
 	    // Swap
  		add((JPanel)child, BorderLayout.CENTER);
-	};
+	}
 }

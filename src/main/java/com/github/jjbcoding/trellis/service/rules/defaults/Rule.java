@@ -21,12 +21,12 @@ public class Rule<T>
     Relationship type;
 
     // *** CONSTRUCTORS
-    @SuppressWarnings("unused")
     /**
      * Constructs a rule.
      * @param classProvider     The provided classes
      * @param type              The type of rule
      */
+    @SuppressWarnings("unused")
     public Rule(ClassProvider<T> classProvider, Relationship type) {
         this.classProvider = classProvider;
         this.type = type;

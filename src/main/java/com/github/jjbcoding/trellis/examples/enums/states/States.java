@@ -3,6 +3,7 @@ package com.github.jjbcoding.trellis.examples.enums.states;
 import com.github.jjbcoding.trellis.examples.nodes.*;
 import com.github.jjbcoding.trellis.service.Node;
 
+@SuppressWarnings("unused")
 public enum States {
     // ----- MEMBERS
     MAKE_BOOKING        (null),

@@ -8,6 +8,7 @@ import com.github.jjbcoding.trellis.examples.injectables.constructed.ProgressBar
 import com.github.jjbcoding.trellis.examples.injectables.controllers.LogInController;
 import com.github.jjbcoding.trellis.service.Injectable;
 
+@SuppressWarnings("unused")
 public enum Injectables {
     // ----- MEMBERS
     LOGIN_DATA              (LogInData.class),

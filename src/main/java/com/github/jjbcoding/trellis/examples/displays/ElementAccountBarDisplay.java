@@ -9,6 +9,7 @@ import com.github.jjbcoding.trellis.service.Node;
 import com.github.jjbcoding.trellis.examples.enums.injectables.Injectables;
 import com.github.jjbcoding.trellis.examples.injectables.controllers.ElementAccountBarController;
 
+@SuppressWarnings("unused")
 public class ElementAccountBarDisplay extends JPanel
 	implements IDisplay {
 	// ----- DYNAMIC

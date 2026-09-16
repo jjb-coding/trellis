@@ -12,6 +12,7 @@ import com.github.jjbcoding.trellis.service.contributions.defaults.title.TitleCo
 
 @Parent(ElementAccountBarNode.class)
 @Supplies(DashboardController.class)
+@SuppressWarnings("unused")
 public class DashboardNode extends Node {
 	// ----- DYNAMIC
 	// *** CONSTRUCTORS

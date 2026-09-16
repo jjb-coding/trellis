@@ -2,6 +2,7 @@ package com.github.jjbcoding.trellis.examples.app;
 
 import com.github.jjbcoding.trellis.service.AppService;
 
+@SuppressWarnings("unused")
 public enum AppServiceSingleton {
     // ----- MEMBERS
     INSTANCE

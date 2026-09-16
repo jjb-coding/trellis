@@ -6,10 +6,18 @@ import com.github.jjbcoding.trellis.service.disposal.object.internal.DisposalObj
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A DisposalObject accumulates Nodes and Injectables that are to be disposed of.
+ * Its purpose is to be passed to an object implementing {@link com.github.jjbcoding.trellis.service.disposal.processor.IDisposalProcessor}.
+ * @see com.github.jjbcoding.trellis.service.disposal.processor.IDisposalProcessor
+ */
 public class DisposalObject
     extends DisposalObjectInternal {
     // ----- DYNAMIC
     // *** CONSTRUCTORS
+    /**
+     * Constructs a DisposalObject instance.
+     */
     public DisposalObject() {
         super();
     }

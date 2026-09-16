@@ -8,14 +8,16 @@ import com.github.jjbcoding.trellis.examples.enums.injectables.Injectables;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serial;
 
 /**
  * Login GUI
  */
 public class LogInDisplay extends JPanel
 	implements IDisplay {
-    // The serial version ID.
-	private static final long serialVersionUID = 1L;
+    // Serial version ID
+	@Serial
+    private static final long serialVersionUID = 1L;
 	
 	// Injections
 	Node _parent;

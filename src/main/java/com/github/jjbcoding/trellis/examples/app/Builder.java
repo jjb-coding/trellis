@@ -7,6 +7,7 @@ import com.github.jjbcoding.trellis.examples.nodes.AppNode;
 import com.github.jjbcoding.trellis.service.AppService;
 import com.github.jjbcoding.trellis.service.AppServiceConfigurationBuilder;
 
+@SuppressWarnings("unused")
 public class Builder {
     public Builder() {
         AppServiceConfigurationBuilder builder =

@@ -9,6 +9,7 @@ import com.github.jjbcoding.trellis.examples.enums.injectables.Injectables;
 
 import java.util.Stack;
 
+@SuppressWarnings("unused")
 public class ProgressBarPublisher extends Injectable {
 	// ----- DYNAMIC
 	// *** FIELDS

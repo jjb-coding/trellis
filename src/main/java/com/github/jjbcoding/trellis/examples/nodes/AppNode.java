@@ -19,6 +19,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.EnumMap;
 
+@SuppressWarnings("unused")
 public class AppNode extends Node {
 	// ----- STATIC
 	static final EnumMap<States, States> backMap;

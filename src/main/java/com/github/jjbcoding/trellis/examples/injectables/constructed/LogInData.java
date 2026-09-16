@@ -4,6 +4,7 @@ import com.github.jjbcoding.trellis.service.AppService;
 import com.github.jjbcoding.trellis.service.Injectable;
 import com.github.jjbcoding.trellis.service.Node;
 
+@SuppressWarnings("unused")
 public class LogInData extends Injectable {
 	// ----- DYNAMIC
 	// *** FIELDS

@@ -12,6 +12,7 @@ import com.github.jjbcoding.trellis.service.contributions.defaults.title.TitleCo
 
 @Parent(ElementProgressBarNode.class)
 @Supplies(LogInController.class)
+@SuppressWarnings("unused")
 public class LogInNode extends Node {
 	public LogInNode(AppService _appService, Node parent, InjectableBag bag) {
 		// * Super

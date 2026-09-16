@@ -13,6 +13,7 @@ import com.github.jjbcoding.trellis.service.Node;
 @Parent(ElementProgressBarNode.class)
 @Expects(LogInData.class)
 @Supplies(ElementAccountBarController.class)
+@SuppressWarnings("unused")
 public class ElementAccountBarNode extends Node {
 	// ----- DYNAMIC
 	// *** CONSTRUCTORS

@@ -6,6 +6,7 @@ import com.github.jjbcoding.trellis.service.Node;
 
 import javax.swing.*;
 
+@SuppressWarnings("unused")
 public class ElementProgressBarController extends Injectable {
 	// ----- DYNAMIC
 	// *** FIELDS

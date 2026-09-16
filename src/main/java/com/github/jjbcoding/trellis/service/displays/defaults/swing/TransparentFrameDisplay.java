@@ -10,6 +10,7 @@ import java.io.Serial;
 /**
  * An empty JFrame that takes a JPanel child element.
  */
+@SuppressWarnings("unused")
 public class TransparentFrameDisplay
 	extends JFrame
 	implements IDisplay {

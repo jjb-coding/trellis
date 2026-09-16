@@ -9,6 +9,7 @@ import com.github.jjbcoding.trellis.examples.enums.injectables.Injectables;
 
 import javax.swing.*;
 
+@SuppressWarnings("unused")
 public class LogInController extends Injectable {
 	// Injections
 	ProgressBarPublisher pub;

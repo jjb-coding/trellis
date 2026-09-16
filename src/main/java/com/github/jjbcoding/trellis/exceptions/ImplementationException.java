@@ -1,12 +1,9 @@
 package com.github.jjbcoding.trellis.exceptions;
 
-import com.github.jjbcoding.trellis.service.Injectable;
-import com.github.jjbcoding.trellis.service.disposal.object.internal.DisposalObjectInternal;
-
 /**
  * An ImplementationException provides an idiomatic exception for use by user-implemented constructors and
- * methods that interact with the service, like Node or Injectable constructors, {@link Injectable#initialise()},
- * {@link com.github.jjbcoding.trellis.service.disposal.processor.IDisposalProcessor#consume(DisposalObjectInternal)},
+ * methods that are invoked by the service: i.e. Node or Injectable constructors, {@link com.github.jjbcoding.trellis.service.Injectable#initialise()},
+ * {@link com.github.jjbcoding.trellis.service.disposal.processor.IDisposalProcessor#consume(com.github.jjbcoding.trellis.service.disposal.object.DisposalObject)},
  * etc. In practice, such constructors and methods can throw any class of exception.
  */
 public class ImplementationException extends RuntimeException {

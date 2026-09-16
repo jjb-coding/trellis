@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.Serial;
 
+@SuppressWarnings("unused")
 public class DashboardDisplay extends JPanel
 	implements IDisplay {
     // ----- DYNAMIC

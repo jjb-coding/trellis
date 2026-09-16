@@ -10,6 +10,7 @@ import com.github.jjbcoding.trellis.service.Node;
 
 import javax.swing.*;
 
+@SuppressWarnings("unused")
 public class ElementAccountBarController extends Injectable {
 	// ----- DYNAMIC
 	// *** FIELDS

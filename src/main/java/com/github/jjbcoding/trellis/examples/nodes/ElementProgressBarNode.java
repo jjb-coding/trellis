@@ -12,6 +12,7 @@ import com.github.jjbcoding.trellis.examples.injectables.constructed.ProgressBar
 
 @Parent(AppNode.class)
 @Supplies({ProgressBarPublisher.class, ElementProgressBarController.class})
+@SuppressWarnings("unused")
 public class ElementProgressBarNode extends Node {
 	// ----- DYNAMIC
 	// *** CONSTRUCTORS
