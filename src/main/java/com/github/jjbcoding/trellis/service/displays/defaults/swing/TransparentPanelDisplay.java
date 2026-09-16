@@ -1,0 +1,62 @@
+package com.github.jjbcoding.trellis.service.displays.defaults.swing;
+
+import com.github.jjbcoding.trellis.service.displays.IDisplay;
+import com.github.jjbcoding.trellis.service.Node;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ *
+ */
+@SuppressWarnings("unused")
+public class TransparentPanelDisplay extends JPanel
+	implements IDisplay {
+	// Serial version ID
+	private static final long serialVersionUID = 1L;
+	// Fields
+	Node _parent;
+	// Components
+	JPanel child;
+
+	/**
+	 *
+	 * @param _parent
+	 */
+	@SuppressWarnings("unused")
+	public TransparentPanelDisplay(Node _parent) {
+		// Super
+		super(new BorderLayout());
+		// Set parent
+		this._parent = _parent;
+		
+		// Configure
+		setOpaque(false);
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unused")
+	@Override
+	public Node getNode() {
+		return _parent;
+	}
+
+	/**
+	 *
+	 * @param child	The child of the IDisplay element
+	 */
+	@SuppressWarnings("unused")
+	@Override
+	public void swapChild(IDisplay child) {
+	    // Clear
+		for (Component component : getComponents())
+	        if (BorderLayout.CENTER.equals(((BorderLayout)getLayout()).getConstraints(component)))
+	            remove(component);
+	    
+	    // Swap
+ 		add((JPanel)child, BorderLayout.CENTER);
+	};
+}
