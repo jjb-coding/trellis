@@ -1,6 +1,9 @@
 package com.github.jjbcoding.trellis.service;
 
+import com.github.jjbcoding.trellis.exceptions.BuilderException;
+
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 
 /**
@@ -22,8 +25,12 @@ class Configuration<T> {
         // Constructor
         Constructor<?>[] constructors = cls.getDeclaredConstructors();
         if (constructors.length != 1)
-            throw new RuntimeException("APP:Node[" + cls.getSimpleName() + "]: Must only have 1 constructor.");
+            throw new BuilderException("app:build:scan: [" + cls.getSimpleName() + "]: Must only have 1 constructor");
         constructor = constructors[0];
+
+        // VALIDATE: public
+        if (!(Modifier.isPublic(constructor.getModifiers())))
+            throw new BuilderException("app:build:scan: [" + cls.getSimpleName() + "]: Constructor is not public.");
 
         // Scan constructor
         Type[] types = constructor.getGenericParameterTypes();
@@ -31,28 +38,28 @@ class Configuration<T> {
         // VALIDATE: number of parameters
         int expectation = isNode ? 3 : 2;
         if (types.length != expectation)
-            throw new RuntimeException("APP:refl[" + cls.getSimpleName() + "]: " + expectation + " parameters were expected.");
+            throw new BuilderException("app:build:scan: [" + cls.getSimpleName() + "]: Constructor " + expectation + " parameters were expected");
 
         // VALIDATE: is first parameter AppContainer?
-        Type appContainerType = types[0];
-        if (!(appContainerType.equals(AppService.class)))
-            throw new RuntimeException("APP:refl[" + cls.getSimpleName() + "]: First parameter is not AppContainer type.");
+        Type appServiceType = types[0];
+        if (!(appServiceType.equals(AppService.class)))
+            throw new BuilderException("app:build:scan: [" + cls.getSimpleName() + "]: First constructor parameter is not AppService type");
 
         // VALIDATE: is second parameter class?
         Type parentType = types[1];
         if (!(parentType instanceof Class<?> parentCls))
-            throw new RuntimeException("APP:refl[" + cls.getSimpleName() + "]: Second parameter is not a class.");
+            throw new BuilderException("app:build:scan: [" + cls.getSimpleName() + "]: Second constructor parameter is not a class");
 
         // VALIDATE: is second parameter parent?
         if (!(Base.class.isAssignableFrom(parentCls)))
-            throw new RuntimeException("APP:refl[" + cls.getSimpleName() + "]: Second parameter is not a subtype of Base.");
+            throw new BuilderException("app:build:scan: [" + cls.getSimpleName() + "]: Second constructor parameter is not a Node, Injectable, or subtype thereof");
 
         // VALIDATE: is third parameter class?
         if (isNode) {
-            // VALIDATE: is third parameter ViewBag?
-            Type viewBagType = types[2];
-            if (!(viewBagType.equals(InjectableBag.class)))
-                throw new RuntimeException("APP:refl[" + cls.getSimpleName() + "]: Third parameter is not InjectableBag type.");
+            // VALIDATE: is third parameter InjectableBag?
+            Type injectableBagType = types[2];
+            if (!(injectableBagType.equals(InjectableBag.class)))
+                throw new BuilderException("app:build:scan:node: [" + cls.getSimpleName() + "]: Third constructor parameter is not InjectableBag type");
         }
     }
 }

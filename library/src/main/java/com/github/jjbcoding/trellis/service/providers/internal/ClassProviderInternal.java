@@ -1,5 +1,6 @@
 package com.github.jjbcoding.trellis.service.providers.internal;
 
+import com.github.jjbcoding.trellis.exceptions.BuilderException;
 import com.github.jjbcoding.trellis.service.providers.ClassProvider;
 
 import java.util.ArrayList;
@@ -29,12 +30,15 @@ public abstract class ClassProviderInternal<T> {
     // ** PACKAGE-PRIVATE
     @SuppressWarnings("unchecked")
     List<Class<? extends T>> getClasses() {
+        if (targetClass == null)
+            throw new BuilderException("app:builder:classProvider: No target class was supplied");
+
         if (cache != null)
             return cache;
 
         cache = new ArrayList<>();
         for (Class<?> cls : produceClasses())
-            if (targetClass.isAssignableFrom(cls))
+            if (cls != null && targetClass.isAssignableFrom(cls))
                 cache.add((Class<? extends T>)cls);
         return cache;
     }

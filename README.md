@@ -63,7 +63,7 @@ mvn package
 The example module demonstrates usage of the library; it is not required by the library itself.
 
 ## Documentation
-See [`example/`](example/) for library documentation.
+See [`example/`](example) for library documentation.
 
 ## Licence
 Distributed under the MIT License.

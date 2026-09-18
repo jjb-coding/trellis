@@ -218,8 +218,10 @@ public class AppService {
 
 		// Discover injectables from nodes - Expects & Provides
 		for (NodeConfiguration nodeConfiguration : nodeConfigurations) {
-            injectableClasses.addAll(nodeConfiguration.provides);
-            injectableClasses.addAll(nodeConfiguration.expects);
+			if (nodeConfiguration.providesAnything())
+            	injectableClasses.addAll(nodeConfiguration.provides);
+			if (nodeConfiguration.expectsAnything())
+            	injectableClasses.addAll(nodeConfiguration.expects);
 		}
 
 		// Scan discovered injectables

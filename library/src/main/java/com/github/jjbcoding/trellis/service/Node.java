@@ -68,7 +68,8 @@ public abstract class Node extends Base {
 	}
 
 	void previousNode(Node node) {
-		node.dispose();
+		if (node != null)
+			node.dispose();
 	}
 
 	// ----- DYNAMIC

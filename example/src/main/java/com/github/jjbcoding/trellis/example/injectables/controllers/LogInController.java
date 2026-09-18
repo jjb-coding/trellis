@@ -19,7 +19,7 @@ public class LogInController extends Injectable {
      * @param _appService 	The appService
      * @param parent        The parent
      */
-    protected LogInController(AppService _appService, Node parent) {
+    public LogInController(AppService _appService, Node parent) {
         super(_appService, parent);
     }
 

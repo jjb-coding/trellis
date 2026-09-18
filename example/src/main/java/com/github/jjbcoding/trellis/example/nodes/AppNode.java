@@ -35,6 +35,7 @@ public class AppNode extends Node {
 	public AppNode(AppService _appService, Node parent, InjectableBag bag) {
 		// * Super
 		super(_appService, parent, bag);
+		JOptionPane.showMessageDialog(null, "My Goodness, this is so concise");
 
 		// * Display
 		// Create
@@ -64,6 +65,7 @@ public class AppNode extends Node {
             }
         });
 
+		JOptionPane.showMessageDialog(null, "2");
 		// * Finish
         frame.setVisible(true);
 	}
