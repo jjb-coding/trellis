@@ -4,6 +4,7 @@ import com.github.jjbcoding.trellis.service.Node;
 import com.github.jjbcoding.trellis.service.disposal.object.internal.DisposalObjectInternal;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -49,7 +50,9 @@ public class DisposalObject
      */
     @SuppressWarnings("unused")
     public List<List<NodeDescription>> byRankDescending() {
-        return byRankAscending().reversed();
+        List<List<NodeDescription>> byRankAscending = byRankAscending();
+        Collections.reverse(byRankAscending);
+        return byRankAscending;
     }
 
     /**

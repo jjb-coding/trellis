@@ -9,6 +9,7 @@ import java.util.List;
 /**
  *
  */
+@SuppressWarnings("unused")
 public abstract class MultiNode extends Node {
 	// ----- CONTRACTUAL
 	@Override

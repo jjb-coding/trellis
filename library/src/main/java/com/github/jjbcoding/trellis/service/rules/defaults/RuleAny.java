@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * A rule which validates successfully if any sub-rule validates.
  */
+@SuppressWarnings("unused")
 public class RuleAny<T>
     implements IRule<T> {
     // ----- DYNAMIC

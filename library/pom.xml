@@ -10,4 +10,8 @@
 
     <packaging>jar</packaging>
 
+    <properties>
+        <maven.compiler.release>16</maven.compiler.release>
+    </properties>
+
 </project>

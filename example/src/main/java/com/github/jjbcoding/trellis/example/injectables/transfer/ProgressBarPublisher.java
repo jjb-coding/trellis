@@ -50,7 +50,7 @@ public class ProgressBarPublisher extends Injectable {
 			// Default (0.0,1.0)
 			start = 0.0f;
 		else
-			start = stack.getLast();
+			start = stack.get(stack.size() - 1);
 			
 		// Map
 		progress = start + ((1.0f - start) * progress);
