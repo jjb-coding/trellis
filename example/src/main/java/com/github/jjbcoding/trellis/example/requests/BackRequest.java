@@ -1,0 +1,6 @@
+package com.github.jjbcoding.trellis.example.requests;
+
+import com.github.jjbcoding.trellis.service.requests.Request;
+
+@SuppressWarnings("unused")
+public class BackRequest extends Request {}

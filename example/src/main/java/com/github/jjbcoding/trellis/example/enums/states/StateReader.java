@@ -1,0 +1,13 @@
+package com.github.jjbcoding.trellis.example.enums.states;
+
+import com.github.jjbcoding.trellis.service.Node;
+import com.github.jjbcoding.trellis.service.readers.IReader;
+
+@SuppressWarnings("unused")
+public class StateReader
+    implements IReader<Node, States> {
+    @Override
+    public Class<? extends Node> getAssociation(States constant) {
+        return constant.getNodeClass();
+    }
+}
