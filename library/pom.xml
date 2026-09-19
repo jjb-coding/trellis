@@ -14,7 +14,7 @@
         <maven.compiler.release>16</maven.compiler.release>
     </properties>
 
-	<reporting>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -25,5 +25,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</reporting>
+	</build>
 </project>
