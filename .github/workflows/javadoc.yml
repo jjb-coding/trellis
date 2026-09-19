@@ -28,7 +28,7 @@ jobs:
 
       - name: Generate Javadoc
         working-directory: library
-        run: mvn --batch-mode javadoc:javadoc
+        run: mvn --batch-mode org.apache.maven.plugins:maven-javadoc-plugin:3.12.0:javadoc
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
