@@ -8,7 +8,9 @@ import java.awt.*;
 import java.io.Serial;
 
 /**
- *
+ * This element is an extension of JPanel, implementing IDisplay. It
+ * provides no user interface itself, only reflecting the child element,
+ * which must be JPanel or a subtype thereof.
  */
 @SuppressWarnings("unused")
 public class TransparentPanelDisplay extends JPanel
@@ -38,12 +40,18 @@ public class TransparentPanelDisplay extends JPanel
 
 	// ----- INTERFACE IMPLEMENTATIONS
 	// * [ IDisplay ]
+	/**
+	 * {@inheritDoc}
+	 */
 	@SuppressWarnings("unused")
 	@Override
 	public Node getNode() {
 		return _parent;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@SuppressWarnings("unused")
 	@Override
 	public void swapChild(IDisplay child) {

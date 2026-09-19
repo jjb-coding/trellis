@@ -7,7 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *
+ * A MultiNode extends Node. It persists all immediate children,
+ * allowing them to retain state and be disposed of simultaneously.
  */
 @SuppressWarnings("unused")
 public abstract class MultiNode extends Node {
@@ -34,8 +35,7 @@ public abstract class MultiNode extends Node {
 	
 	// *** CONSTRUCTORS
 	/**
-	 * Creates an instance of a MultiNode. This Node subtype persist all children,
-	 * allowing them to retain state.
+	 * Creates an instance of a MultiNode.
 	 * @param _appService		The app service
 	 * @param parent			The parent
 	 * @param bag				The Injectable bag

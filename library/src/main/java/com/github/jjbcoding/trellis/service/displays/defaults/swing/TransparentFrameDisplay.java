@@ -36,11 +36,17 @@ public class TransparentFrameDisplay
 
 	// ----- INTERFACE IMPLEMENTATIONS
 	// * [ IDisplay ]
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Node getNode() {
 		return _parent;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void swapChild(IDisplay child) {
 	    // Clear

@@ -1,3 +1,6 @@
+/**
+ * The Trellis module.
+ */
 module com.github.jjbcoding.trellis {
     requires java.sql;
     requires java.desktop;

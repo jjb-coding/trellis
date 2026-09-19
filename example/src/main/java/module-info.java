@@ -1,3 +1,6 @@
+/**
+ * Example module that demonstrates the Trellis library.
+ */
 module com.github.jjbcoding.trellis.example {
     requires java.sql;
     requires java.desktop;

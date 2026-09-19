@@ -1,1 +1,0 @@
-moduleSearchIndex = [{"l":"com.github.jjbcoding.trellis"}];updateSearchResults();
