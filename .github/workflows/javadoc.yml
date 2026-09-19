@@ -1,0 +1,52 @@
+name: Publish Javadoc
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Generate Javadoc
+        working-directory: library
+        run: mvn --batch-mode javadoc:javadoc
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Javadoc
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: library/target/reports/apidocs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
