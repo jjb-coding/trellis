@@ -27,7 +27,14 @@ jobs:
           cache: maven
 
       - name: Generate Javadoc
-        run: mvn --batch-mode --file library/pom.xml javadoc:javadoc -Daggregate=false
+        working-directory: library
+        run: |
+          mkdir -p target/reports/apidocs
+          javadoc \
+            --release 16 \
+            -public \
+            -d target/reports/apidocs \
+            $(find src/main/java -name '*.java')
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
