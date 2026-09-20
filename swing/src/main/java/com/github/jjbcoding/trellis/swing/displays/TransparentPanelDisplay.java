@@ -1,4 +1,4 @@
-package com.github.jjbcoding.trellis.service.displays.defaults.swing;
+package com.github.jjbcoding.trellis.swing.displays;
 
 import com.github.jjbcoding.trellis.service.displays.IDisplay;
 import com.github.jjbcoding.trellis.service.Node;

@@ -4,6 +4,9 @@ A declarative tree of node elements forms the backbone of a user interface, reco
 with a dependent tree of display elements. Nodes host and scope the lifecycle of injection objects,
 stateful components that descendents can source, read and communicate with.
 
+Trellis does not depend on any particular UI framework. An additional module, `trellis-swing` is supplied
+with some Java Swing-specific utilities.
+
 ## Overview
 ![image](docs/graph_explainer.png)
 The implementer extends Node and/or MultiNode classes, using annotations to describe
@@ -19,7 +22,7 @@ No particular user interface library is prescribed: an implementer only has to d
 an interface. Some generic implementations using Swing are provided, but optional.
 
 ## Example
-See [`example/`](example/) for a demonstrative project. To run:
+See [example/](/example) for a demonstrative project. To run:
 ```
 cd example
 mvn compile
@@ -37,33 +40,49 @@ mvn compile
 ## Architecture
 - **Configuration Pattern**: The Service provides a parameterless constructor, such that it can be hosted as a Singleton by any framework the implementer uses. Methods are blocked until the Service is configured with an AppServiceConfigurationBuilder.
 - **Reflection Caching**: All Nodes and Injectables are discovered when the Service is configured, and scanned once, a digest containing all relevant information being retained thereafter.
-- **Exception Layering**: All significant errors throw an exception at the element where the error occurs, which is caught and wrapped in an exception at the element where the request originated.
+- **Sophisticated Fault Diagnosis**: All significant errors throw an exception at the element where the error occurs, which is caught and wrapped in an exception at the element where the request originated.
 - **Exception Boundary**: Wherever the library calls into a user-defined method, any exceptions thrown by that method are caught and wrapped into a custom exception type. 
 
 ## Installation
 ### Maven
-If you have access to the published Maven artifact, add the following dependency:
+If you have access to the published Maven artifact, add the following dependency for the library:
 
 ```
 <dependency>
-    <groupId>com.github.GITHUB_NAME</groupId>
+    <groupId>com.github.jjb-coding</groupId>
     <artifactId>trellis</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
 
+For Swing-specific extensions:
+
+```
+<dependency>
+    <groupId>com.github.jjb-coding</groupId>
+    <artifactId>trellis-swing</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ### Building from source
-Clone the repository. To build:
+Clone the repository. To build the core library:
 
 ```
 cd library
 mvn package
 ```
 
-The example module demonstrates usage of the library; it is not required by the library itself.
+For Swing-specific extensions:
+```
+cd swing
+mvn package
+```
+
+The example module demonstrates usage of the library. It is not required for use of the library.
 
 ## Documentation
-See [`example/`](example) for library documentation.
+See [documentation](https://jjb-coding.github.io/trellis/) for library documentation.
 
 ## Licence
 Distributed under the MIT License.

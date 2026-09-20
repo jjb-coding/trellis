@@ -13,6 +13,7 @@
 
     <modules>
         <module>library</module>
+        <module>swing</module>
         <module>example</module>
     </modules>
 

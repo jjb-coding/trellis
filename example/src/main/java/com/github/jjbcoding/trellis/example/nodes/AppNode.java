@@ -10,7 +10,7 @@ import com.github.jjbcoding.trellis.service.Node;
 import com.github.jjbcoding.trellis.service.contributions.defaults.title.TitleContribution;
 import com.github.jjbcoding.trellis.service.contributions.defaults.title.TitleDigestComponent;
 import com.github.jjbcoding.trellis.service.requests.Request;
-import com.github.jjbcoding.trellis.service.displays.defaults.swing.TransparentFrameDisplay;
+import com.github.jjbcoding.trellis.swing.displays.TransparentFrameDisplay;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

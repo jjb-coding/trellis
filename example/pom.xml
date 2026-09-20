@@ -60,6 +60,11 @@
             <artifactId>trellis</artifactId>
             <version>1.0.0</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>com.github.jjb-coding</groupId>
+            <artifactId>trellis-swing</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 </project>
