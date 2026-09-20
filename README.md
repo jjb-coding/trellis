@@ -34,7 +34,7 @@ mvn compile
 - **Metadata Aggregation**: Nodes can contribute metadata, which is aggregated through the active path. The implementer can provide a custom aggregator to condense these into DigestComponents which are then propagated up the tree and consumed by Nodes.
 - **Disposal Processing**: Nodes and Injectables to be disposed of are collected into a data structure. This can be iterated over in a variety of ways (depth-first or breadth-first; ascending or descending; Injectables then Nodes, or vice versa) for cases where the closing of objects must be performed in a particular order, due to dependencies on the existence of related objects. The implementer can also provide their own IDisposalProcessor to process this data directly.
 - **Requests**: A Request propagates up the tree and can be caught by any active Node. 
-- **Validation Rules**: Which Nodes and Injectables were discovered can be compared against a list of classes,
+- **Validation Rules**: Which Nodes and Injectables were discovered can be compared against a package, list of classes, or custom Class Provider.
 - **Enum Constants**: The Service can be configured with an enum and a paired reader, which is then scanned and cached. This allows Nodes, Injectables and DigestComponents to be described by an enum constant, rather than Class object, from any method. 
 
 ## Architecture
